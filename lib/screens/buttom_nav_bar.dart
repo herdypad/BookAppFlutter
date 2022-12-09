@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:myapp/screens/home/home_page.dart';
+import 'package:myapp/screens/profile/profile_page.dart';
+import 'package:myapp/screens/save/save_page.dart';
+import 'package:myapp/screens/store/store_page.dart';
+import 'package:myapp/theme.dart';
+
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _selectedIdex = 0;
+
+  final _screens = [HomePage(), ProfilePage(), SavePage(), StorePage()];
+
+  @override
+  Widget build(BuildContext context) {
+    Widget cotomeBattonNav() {
+      return BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIdex,
+        onTap: (i) {
+          setState(
+            () {
+              _selectedIdex = i;
+            },
+          );
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: EdgeInsets.only(top: 15),
+              child: Image.asset(
+                'assets/icons/icon-home.png',
+                width: 20,
+                color: _selectedIdex == 0 ? greenColor : greyColor,
+              ),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: EdgeInsets.only(top: 15),
+              child: Image.asset(
+                'assets/icons/icon-save.png',
+                width: 20,
+                color: _selectedIdex == 1 ? greenColor : greyColor,
+              ),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: EdgeInsets.only(top: 15),
+              child: Image.asset(
+                'assets/icons/icon-keranjang.png',
+                width: 20,
+                color: _selectedIdex == 2 ? greenColor : greyColor,
+              ),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: EdgeInsets.only(top: 15),
+              child: Image.asset(
+                'assets/icons/icon-profile.png',
+                width: 20,
+                color: _selectedIdex == 3 ? greenColor : greyColor,
+              ),
+            ),
+            label: '',
+          ),
+        ],
+      );
+    }
+
+    return Scaffold(
+      bottomNavigationBar: cotomeBattonNav(),
+      body: Stack(
+        children: _screens
+            .asMap()
+            .map((i, screen) => MapEntry(
+                i,
+                Offstage(
+                  offstage: _selectedIdex != i,
+                  child: screen,
+                )))
+            .values
+            .toList(),
+      ),
+    );
+  }
+}
