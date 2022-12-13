@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/theme.dart';
 
 class ProfilePage extends StatelessWidget {
+  static const nameRoute = '/profilePage';
   const ProfilePage({super.key});
 
   @override

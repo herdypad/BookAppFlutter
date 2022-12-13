@@ -11,15 +11,13 @@ Color greenColor = Color(0xFF098B5C);
 Color greyColorRecentBook = Color(0xFFAFAFAF);
 Color greyCOlorInfo = Color(0xFFF7F7F7);
 Color diverColor = Color(0xFF6B6B6B);
+Color borderColorBook = Color(0xFFEDEDED);
+Color tranparanColor = Colors.transparent;
 
-TextStyle semiBoltText20 =
-    GoogleFonts.poppins(fontSize: 20, fontWeight: semiBold);
-TextStyle semiBoltText16 =
-    GoogleFonts.poppins(fontSize: 16, fontWeight: semiBold);
-TextStyle semiBoltText14 =
-    GoogleFonts.poppins(fontSize: 14, fontWeight: semiBold);
-TextStyle semiBoltText12 =
-    GoogleFonts.poppins(fontSize: 12, fontWeight: semiBold);
+TextStyle semiBoltText20 = GoogleFonts.poppins(fontSize: 20, fontWeight: bold);
+TextStyle semiBoltText16 = GoogleFonts.poppins(fontSize: 16, fontWeight: bold);
+TextStyle semiBoltText14 = GoogleFonts.poppins(fontSize: 14, fontWeight: bold);
+TextStyle semiBoltText12 = GoogleFonts.poppins(fontSize: 12, fontWeight: bold);
 
 //reguler text
 TextStyle regulerText14 =
